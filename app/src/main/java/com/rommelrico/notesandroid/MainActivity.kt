@@ -42,11 +42,11 @@ class MainActivity : AppCompatActivity() {
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, notes)
         listView.adapter = arrayAdapter
 
-        listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
+        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, _, _ ->
             // TODO
         }
 
-        listView.onItemLongClickListener = AdapterView.OnItemLongClickListener { _, view, i, l ->
+        listView.onItemLongClickListener = AdapterView.OnItemLongClickListener { _, _, i, _ ->
             val itemToDelete = i
 
             AlertDialog.Builder(this@MainActivity)

@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val menuInflater = menuInflater
-        // TODO
+        menuInflater.inflate(R.menu.add_note_menu, menu)
 
         return super.onCreateOptionsMenu(menu)
     }

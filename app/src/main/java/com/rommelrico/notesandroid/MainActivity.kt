@@ -80,7 +80,12 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         super.onOptionsItemSelected(item)
 
-        // TODO
+        if (item?.getItemId() == R.id.add_note) {
+            val intent = Intent(applicationContext, NoteEditorActivity::class.java)
+            startActivity(intent)
+
+            return true
+        }
 
         return false
     }

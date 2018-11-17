@@ -42,8 +42,10 @@ class MainActivity : AppCompatActivity() {
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, notes)
         listView.adapter = arrayAdapter
 
-        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, _, _ ->
-            // TODO
+        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, i, _ ->
+            val intent = Intent(applicationContext, NoteEditorActivity::class.java)
+            intent.putExtra("noteId", i)
+            startActivity(intent)
         }
 
         listView.onItemLongClickListener = AdapterView.OnItemLongClickListener { _, _, i, _ ->

@@ -1,10 +1,12 @@
 package com.rommelrico.notesandroid
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -40,6 +42,24 @@ class MainActivity : AppCompatActivity() {
             // TODO
         }
 
+        listView.onItemLongClickListener = AdapterView.OnItemLongClickListener { adapterView, view, i, l ->
+            val itemToDelete = i
+
+            AlertDialog.Builder(this@MainActivity)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Are you sure?")
+                    .setMessage("Do you want to delete this note?")
+                    .setPositiveButton("Yes") { dialogInterface, i ->
+                        notes.removeAt(itemToDelete)
+                        arrayAdapter?.notifyDataSetChanged()
+
+                        val set = HashSet<String>(MainActivity.notes)
+                        sharedPreferences?.edit()?.putStringSet("notes", set)?.apply()
+                    }
+                    .setNegativeButton("No", null)
+                    .show()
+            true
+        }
 
     }
 }

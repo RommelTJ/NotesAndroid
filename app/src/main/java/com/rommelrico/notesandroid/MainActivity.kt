@@ -29,5 +29,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             notes = ArrayList(set)
         }
+
+        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, notes)
+        listView.adapter = arrayAdapter
+
+        
     }
 }

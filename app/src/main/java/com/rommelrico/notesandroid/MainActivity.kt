@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             // TODO
         }
 
-        listView.onItemLongClickListener = AdapterView.OnItemLongClickListener { adapterView, view, i, l ->
+        listView.onItemLongClickListener = AdapterView.OnItemLongClickListener { _, view, i, l ->
             val itemToDelete = i
 
             AlertDialog.Builder(this@MainActivity)

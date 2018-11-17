@@ -16,6 +16,13 @@ class NoteEditorActivity : AppCompatActivity() {
 
         val intent = intent
         noteId = intent.getIntExtra("noteId", -1)
-        
+
+        if (noteId != -1) {
+            editText.setText(MainActivity.notes[noteId])
+        } else {
+            MainActivity.notes.add("")
+            noteId = MainActivity.notes.size - 1
+        }
+
     }
 }

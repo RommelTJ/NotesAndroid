@@ -16,9 +16,11 @@ import java.util.HashSet
 
 class MainActivity : AppCompatActivity() {
 
-    internal var notes = ArrayList<String>()
-    internal var arrayAdapter: ArrayAdapter<*>? = null
-    internal var sharedPreferences: SharedPreferences? = null
+    companion object {
+        internal var notes = ArrayList<String>()
+        internal var arrayAdapter: ArrayAdapter<*>? = null
+        internal var sharedPreferences: SharedPreferences? = null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
